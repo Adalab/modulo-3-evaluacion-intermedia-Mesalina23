@@ -7,6 +7,11 @@ function App() {
   const [newName, setNewName] = useState('');
   const [openWeek, setOpenWeek] = useState(false);
   const [openWeekend, setOpenWeekend] = useState(false);
+  const [filter, setFilter] = useState('all');
+  const handleSearch = (ev) => {
+    console.log(ev.target.value);
+    setFilter(ev.target.value);
+  };
   const handleClick = (ev) => {
     ev.preventDefault();
     const newClub = {
@@ -47,7 +52,18 @@ function App() {
       return 'no';
     }
   };
-  const htmlClubsLists = data.map((oneClub, index) => (
+  //const [filter, setFilter] = useState('all');
+  const dataFiltered = data.filter((oneCard) => {
+    if (filter === 'all') {
+      return data;
+    } else if (filter === 'week') {
+      return oneCard.openOnWeekdays === true;
+    } else if (filter === 'weekend') {
+      return oneCard.openOnWeekend === true;
+    }
+  });
+
+  const htmlClubsLists = dataFiltered.map((oneClub, index) => (
     <li key={index}>
       <p>
         <label>#:{index}</label>
@@ -69,6 +85,11 @@ function App() {
     <div className='App'>
       <header>
         <h1>Mis clubs</h1>
+        <select onChange={handleSearch}>
+          <option value='all'>Todos</option>
+          <option value='week'>Los que abren entre semana</option>
+          <option value='weekend'>Los que abren el fin de semana</option>
+        </select>
       </header>
       <main>
         <ul className='cardsContainer'>{htmlClubsLists}</ul>
