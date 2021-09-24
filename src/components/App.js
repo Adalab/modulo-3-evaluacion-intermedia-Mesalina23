@@ -29,13 +29,15 @@ function App() {
     //console.log(ev.currentTarget.value);
   };
   const handleWeek = (ev) => {
-    console.log(ev.currentTarget);
     setOpenWeek(ev.currentTarget.checked);
   };
 
   const handleweekend = (ev) => {
     console.log(ev.currentTarget);
     setOpenWeekend(ev.currentTarget.checked);
+  };
+  const handleDeleteIcon = (ev) => {
+    console.log(ev.currentTarget);
   };
 
   const openClub = (oneClub) => {
@@ -65,6 +67,7 @@ function App() {
 
   const htmlClubsLists = dataFiltered.map((oneClub, index) => (
     <li key={index}>
+      <i className='far fa-times-circle' onClick={handleDeleteIcon}></i>
       <p>
         <label>#:{index}</label>
         {oneClub.name}
