@@ -3,10 +3,10 @@ import initialData from '../data/clubs.json';
 import { useState } from 'react';
 
 function App() {
-  const [data, setData] = useState([initialData]);
+  const [data, setData] = useState(initialData);
   const [newName, setNewName] = useState('');
-  const [openWeek, setOpenWeek] = useState('');
-  const [openWeekend, setOpenWeekend] = useState('');
+  const [openWeek, setOpenWeek] = useState(false);
+  const [openWeekend, setOpenWeekend] = useState(false);
   const handleClick = (ev) => {
     ev.preventDefault();
     const newClub = {
@@ -47,7 +47,7 @@ function App() {
       return 'no';
     }
   };
-  const htmlClubsLists = initialData.map((oneClub, index) => (
+  const htmlClubsLists = data.map((oneClub, index) => (
     <li key={index}>
       <p>
         <label>#:{index}</label>
