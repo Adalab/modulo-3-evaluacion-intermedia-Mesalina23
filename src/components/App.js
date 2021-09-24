@@ -47,7 +47,7 @@ function App() {
       return 'no';
     }
   };
-  const htmlClubsLists = data.map((oneClub, index) => (
+  const htmlClubsLists = initialData.map((oneClub, index) => (
     <li key={index}>
       <p>
         <label>#:{index}</label>
