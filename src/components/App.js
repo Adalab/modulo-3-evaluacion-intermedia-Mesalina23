@@ -91,23 +91,25 @@ function App() {
   ));
 
   return (
-    <div className='App'>
-      <header>
-        <h1>Mis clubs</h1>
+    <div className='page'>
+      <header className='header'>
+        <h1 className='header__title'>Mis clubs</h1>
       </header>
       <main>
-        <section>
-          <p>¿Cúales son los Clubs que quieres ver?</p>
+        <section className='section__search'>
+          <p className='section__search--paragraph'>
+            ¿Cúales son los Clubs que quieres ver?
+          </p>
           <select onChange={handleSearch}>
             <option value='all'>Todos</option>
             <option value='week'>Los que abren entre semana</option>
             <option value='weekend'>Los que abren el fin de semana</option>
           </select>
         </section>
-        <section>
-          <ul className='cardsContainer'>{htmlClubsLists}</ul>
+        <section className='section__list'>
+          <ul className='section__list--ul'>{htmlClubsLists}</ul>
         </section>
-        <section>
+        <section className='section__newclub'>
           <h2>Añadir un nuevo Club</h2>
           <form>
             <label>Nombre del club:</label>
@@ -147,7 +149,9 @@ function App() {
           </form>
         </section>
       </main>
-      <footer>mesalina</footer>
+      <footer className='footer'>
+        <small class='footer__copy'>mesalina&copy 2021</small>
+      </footer>
     </div>
   );
 }
