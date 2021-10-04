@@ -2,6 +2,14 @@
   height: 90px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border: 2px solid lightcoral;
+  justify-content: space-around;
+  &__paragraph {
+    font-weight: 600;
+  }
+  &__select {
+    border-radius: 15%;
+    height: 50px;
+    width: 170px;
+    background-color: white;
+  }
 }

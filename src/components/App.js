@@ -67,8 +67,8 @@ function App() {
     }
   });
 
-  const htmlClubsLists = dataFiltered.map((oneClub, index) => (
-    <li key={index}>
+  const htmlClubsLists = data.map((oneClub, index) => (
+    <li key={index} className='section__list--ul--li'>
       <i
         className='far fa-times-circle'
         onClick={handleDeleteCard}
@@ -95,12 +95,12 @@ function App() {
       <header className='header'>
         <h1 className='header__title'>Mis clubs</h1>
       </header>
-      <main>
+      <main className='main'>
         <section className='section__search'>
-          <p className='section__search--paragraph'>
+          <p className='section__search__paragraph'>
             ¿Cúales son los Clubs que quieres ver?
           </p>
-          <select onChange={handleSearch}>
+          <select onChange={handleSearch} className='section__search__select'>
             <option value='all'>Todos</option>
             <option value='week'>Los que abren entre semana</option>
             <option value='weekend'>Los que abren el fin de semana</option>
@@ -110,7 +110,7 @@ function App() {
           <ul className='section__list--ul'>{htmlClubsLists}</ul>
         </section>
         <section className='section__newclub'>
-          <h2>Añadir un nuevo Club</h2>
+          <h2 className='section__newclub__title'>Añadir un nuevo Club</h2>
           <form>
             <label>Nombre del club:</label>
             <input
@@ -150,7 +150,7 @@ function App() {
         </section>
       </main>
       <footer className='footer'>
-        <small class='footer__copy'>mesalina&copy 2021</small>
+        <small className='footer__copy'>mesalina&copy;2021</small>
       </footer>
     </div>
   );

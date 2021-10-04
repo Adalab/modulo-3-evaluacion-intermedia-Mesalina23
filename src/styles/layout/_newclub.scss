@@ -1,4 +1,7 @@
 .section__newclub {
-  border: 2px solid lightgreen;
+  margin-top: 20px;
   height: 100px;
+  &__title {
+    margin-bottom: 20px;
+  }
 }
