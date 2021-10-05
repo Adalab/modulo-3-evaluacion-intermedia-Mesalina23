@@ -68,7 +68,7 @@ function App() {
       }
     })
     .map((oneClub, index) => (
-      <li key={index} className='section__list--ul--li'>
+      <li key={index} className='section__list--li'>
         <i
           className='far fa-times-circle'
           onClick={handleDeleteCard}
@@ -107,14 +107,14 @@ function App() {
           </select>
         </section>
         <section className='section__list'>
-          <ul className='section__list--ul'>{htmlClubsLists}</ul>
+          <ul className='section__list'>{htmlClubsLists}</ul>
         </section>
         <section className='section__newclub'>
-          <h2 className='section__newclub__title'>Añadir un nuevo Club</h2>
-          <form>
-            <label>Nombre del club:</label>
+          <h2 className='section__newclub--title'>Añadir un nuevo Club</h2>
+          <form className='newClub'>
+            <label className='newClub__title'>Nombre del club:</label>
             <input
-              className=''
+              className='newClub__input'
               type='text'
               name='name'
               id='name'
@@ -124,6 +124,7 @@ function App() {
             />
             <label>¿Abre entre semana?</label>
             <input
+              className='newClub__input'
               id='openWeek'
               type='checkbox'
               name='openWeek'
@@ -133,6 +134,7 @@ function App() {
             />
             <label>¿Abre los fines de semana?</label>
             <input
+              className='newClub__input'
               id='openWeend'
               type='checkbox'
               name='openWeekend'
@@ -141,7 +143,7 @@ function App() {
               checked={openWeekend}
             />
             <input
-              className=''
+              className='newClub__input'
               type='submit'
               value='Añadir un nuevo club'
               onClick={handleClick}
