@@ -57,38 +57,38 @@ function App() {
     }
   };
 
-  const dataFiltered = data.filter((oneCard) => {
-    if (filter === 'all') {
-      return data;
-    } else if (filter === 'week') {
-      return oneCard.openOnWeekdays === true;
-    } else if (filter === 'weekend') {
-      return oneCard.openOnWeekend === true;
-    }
-  });
+  const htmlClubsLists = data
+    .filter((oneCard) => {
+      if (filter === 'all') {
+        return data;
+      } else if (filter === 'week') {
+        return oneCard.openOnWeekdays === true;
+      } else {
+        return oneCard.openOnWeekend === true;
+      }
+    })
+    .map((oneClub, index) => (
+      <li key={index} className='section__list--ul--li'>
+        <i
+          className='far fa-times-circle'
+          onClick={handleDeleteCard}
+          id={index}
+        ></i>
+        <p>
+          <label>#:{index}</label>
+          {oneClub.name}
+        </p>
+        <p>
+          <label>Abierto entre semana:</label>
+          {openClub(oneClub)}
+        </p>
 
-  const htmlClubsLists = data.map((oneClub, index) => (
-    <li key={index} className='section__list--ul--li'>
-      <i
-        className='far fa-times-circle'
-        onClick={handleDeleteCard}
-        id={index}
-      ></i>
-      <p>
-        <label>#:{index}</label>
-        {oneClub.name}
-      </p>
-      <p>
-        <label>Abierto entre semana:</label>
-        {openClub(oneClub)}
-      </p>
-
-      <p>
-        <label>Abierto el fin de semana:</label>
-        {closeClub(oneClub)}
-      </p>
-    </li>
-  ));
+        <p>
+          <label>Abierto el fin de semana:</label>
+          {closeClub(oneClub)}
+        </p>
+      </li>
+    ));
 
   return (
     <div className='page'>
